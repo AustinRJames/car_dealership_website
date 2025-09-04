@@ -124,3 +124,27 @@ img{
     text-align:center;
     box-shadow: 2px 2px 3px #999;  
 }
+
+.contact-info {
+    padding: 10px;
+}
+
+.contact-info .contact-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.contact-info .contact-value {
+    text-align: center;
+}
+
+.contact-us {
+    border: 2px solid #000000;
+    border-radius: 20px;
+    width: 80%; 
+    margin: auto; 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 20px;
+}
