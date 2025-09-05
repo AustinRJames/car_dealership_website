@@ -6,11 +6,20 @@ from dotenv import load_dotenv
 load_dotenv()
 
 backend_url = os.getenv(
-    'backend_url',
-    default="https://arjames1128-3030.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/fetchDealers/")
+    "backend_url",
+    default=(
+        "https://arjames1128-3030.theiadockernext-0-labs-prod-theiak8s-4-tor01."
+        "proxy.cognitiveclass.ai/fetchDealers/"
+    ),
+)
+
 sentiment_analyzer_url = os.getenv(
-    'sentiment_analyzer_url',
-    default="https://sentianalyzer.1zydvyygiwwx.us-south.codeengine.appdomain.cloud/")
+    "sentiment_analyzer_url",
+    default=(
+        "https://sentianalyzer.1zydvyygiwwx.us-south."
+        "codeengine.appdomain.cloud/"
+    ),
+)
 
 
 def get_request(endpoint, **kwargs):
