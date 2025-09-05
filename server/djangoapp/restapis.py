@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 backend_url = os.getenv(
-    'backend_url', 
+    'backend_url',
     default="https://arjames1128-3030.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/fetchDealers/")
 sentiment_analyzer_url = os.getenv(
     'sentiment_analyzer_url',
@@ -15,21 +15,22 @@ sentiment_analyzer_url = os.getenv(
 
 def get_request(endpoint, **kwargs):
     params = ""
-    if(kwargs):
-        for key,value in kwargs.items():
-            params=params+key+"="+value+"&"
+    if (kwargs):
+        for key, value in kwargs.items():
+            params = params + key + "=" + value + "&"
 
-    request_url = backend_url+endpoint+"?"+params
+    request_url = backend_url + endpoint + "?" + params
 
     print("GET from {} ".format(request_url))
     try:
         response = requests.get(request_url)
         return response.json()
-    except:
+    except BaseException:
         print("Network exception occurred")
 
+
 def analyze_review_sentiments(text):
-    request_url = sentiment_analyzer_url+"analyze/"+text
+    request_url = sentiment_analyzer_url + "analyze/" + text
     try:
         # Call get method of requests library with URL and parameters
         response = requests.get(request_url)
@@ -52,10 +53,11 @@ def post_review(data_dict):
         if response.status_code == 200:
             try:
                 return response.json()
-            except:
+            except BaseException:
                 return {"status": 200, "message": "Review posted successfully"}
         else:
-            return {"status": response.status_code, "message": f"Backend error: {response.text}"}
+            return {"status": response.status_code,
+                    "message": f"Backend error: {response.text}"}
 
     except requests.exceptions.ConnectionError as e:
         print(f"Connection error: {e}")
@@ -66,4 +68,3 @@ def post_review(data_dict):
     except Exception as e:
         print(f"Unexpected error in post_review: {e}")
         return {"status": 500, "message": f"Network exception: {str(e)}"}
-    
