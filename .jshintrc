@@ -1,0 +1,9 @@
+{
+  "esversion": 8,      // Enables ES8 features like async/await
+  "node": true,        // Allows Node.js globals (require, module, etc.)
+  "undef": true,       // Warn about undefined variables
+  "unused": true,      // Warn about unused variables
+  "eqeqeq": true,      // Require strict equality (===)
+  "curly": true,       // Require curly braces for all blocks
+  "sub": true          // Allow bracket notation without warning
+}
