@@ -8,7 +8,8 @@ load_dotenv()
 backend_url = os.getenv(
     "backend_url",
     default=(
-        "https://arjames1128-3030.theiadockernext-0-labs-prod-theiak8s-4-tor01."
+        "https://arjames1128-3030.theiadockernext-0-labs-"
+        "prod-theiak8s-4-tor01."
         "proxy.cognitiveclass.ai/fetchDealers/"
     ),
 )
